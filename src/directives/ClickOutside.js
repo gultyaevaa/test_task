@@ -1,8 +1,9 @@
 const clickOutside = {
     mounted: (element, binding) => {
-        console.log('binding, ' + binding);
-        element.clickOutsideEvent = () => {
-            binding.value();
+        element.clickOutsideEvent = (event) => {
+            if (!(element === event.target || element.contains(event.target))) {
+                binding.value();
+            }
         }
         document.addEventListener('click', element.clickOutsideEvent);
     },
