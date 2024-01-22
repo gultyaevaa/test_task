@@ -60,11 +60,11 @@ const visibleItems = computed(()=>{
 .license-underline {
   text-decoration: underline;
   color: white;
-  transition: .3s;
+  transition: var(--transition-duration);
 }
 
 .part-one-block {
-  border: 1px solid #303f5f;
+  border: 1px solid var(--text-color-disabled);
   border-radius: 8px;
   padding: 10px;
   margin: 5px;
@@ -77,17 +77,17 @@ const visibleItems = computed(()=>{
 }
 
 .part-one-block-visible-items_item {
-  color: white;
+  color: var(--color-white);
 }
 
 .license-underline:hover {
-  color: #4ab4ff;
-  transition: .3s;
+  color: var(--color-primary);
+  transition: var(--transition-duration);
 }
 
 .vertical-line {
   height: 100%;
-  border-left: 1px solid #303f5f;
+  border-left: 1px solid var(--text-color-disabled);
   margin: 0 15px;
 }
 </style>
