@@ -41,7 +41,7 @@ const checkboxId = computed(() => {
   align-items: center;
   font-size: 18px;
   color: #92a4c8;
-  transition: .3s;
+  transition: var(--transition-duration);
   user-select: none;
 }
 
@@ -52,27 +52,27 @@ const checkboxId = computed(() => {
   width: 24px;
   height: 24px;
   margin-right: 10px;
-  border: 1px solid #303f5f;
+  border: 1px solid var(--text-color-disabled);
   border-radius: 6px;
   background: transparent;
-  transition: .3s;
+  transition: var(--transition-duration);
 }
 
 .checkbox-view:hover {
-  border-color: #4ab4ff;
+  border-color: var(--color-primary);
 }
 
 .checkbox-icon {
   opacity: 0;
-  transition: .3s;
+  transition: var(--transition-duration);
 }
 
 .checkbox:checked + .checkbox-view svg {
-  fill: #4ab4ff;
+  fill: var(--color-primary);
 }
 
 .checkbox:checked.checkbox:disabled + .checkbox-view svg {
-  fill: #303f5f;
+  fill: var(--text-color-disabled);
 }
 
 .checkbox:checked + .checkbox-view .checkbox-icon {
@@ -80,7 +80,7 @@ const checkboxId = computed(() => {
 }
 
 .checkbox-label:has(.checkbox:checked:not(:disabled)) {
-  color: white;
-  transition: .3s;
+  color: var(--color-white);
+  transition: var(--transition-duration);
 }
 </style>

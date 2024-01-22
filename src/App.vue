@@ -9,7 +9,7 @@ import PartOne from "@/pages/PartOne.vue";
 
 <style scoped>
 .app {
-  background-color: black;
+  background-color: var(--color-black);
   height: 100%;
   width: 100%;
 }
