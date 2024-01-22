@@ -1,9 +1,11 @@
 <script setup>
 import PartOne from "@/pages/PartOne.vue";
+import PartTwo from "@/pages/PartTwo.vue";
 </script>
 <template>
   <div class="app">
     <PartOne/>
+    <PartTwo/>
   </div>
 </template>
 
