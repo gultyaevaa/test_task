@@ -23,11 +23,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="dropdown-reference" :id="id" @click="changeState">
+  <div :id="id" class="dropdown-reference" @click="changeState">
     <slot name="default"/>
   </div>
   <transition name="slide">
-    <div v-if="state" class="dropdown" style="margin: 5px 0" v-click-outside="clickOutsideObj">
+    <div v-if="state" v-click-outside="clickOutsideObj" class="dropdown">
       <slot name="dropdown"/>
     </div>
   </transition>
@@ -46,5 +46,6 @@ onMounted(() => {
   transition: transform var(--transition-duration) ease-in-out;
   transform-origin: top;
   width: fit-content;
+  margin: 5px 0;
 }
 </style>
