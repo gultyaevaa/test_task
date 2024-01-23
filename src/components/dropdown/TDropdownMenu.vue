@@ -15,6 +15,6 @@
 }
 
 ::v-deep(.dropdown-item:not(:last-child)) {
-  margin-bottom: 1px;
+  border-bottom: 1px solid var(--color-black);
 }
 </style>

@@ -18,7 +18,7 @@ import TDropdownMenu from "@/components/dropdown/TDropdownMenu.vue";
     <template #dropdown>
       <TDropdownMenu>
         <TDropdownItem>
-          <template #text>Первый (первый)</template>
+          <template #text>Первый</template>
         </TDropdownItem>
         <TDropdownItem>
           <template #text>Второй</template>
@@ -54,7 +54,6 @@ import TDropdownMenu from "@/components/dropdown/TDropdownMenu.vue";
 
 <style scoped>
 .dropdown-button {
-  margin-left: 5px;
   width: 30px;
   height: 30px;
   display: flex;

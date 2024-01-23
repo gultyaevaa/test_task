@@ -26,12 +26,12 @@ const changeState = () => {
           const dropdownItem = dropdownItems.item(0);
           const dropdownWidth = dropdownItem.offsetWidth;
           if (referenceOffsetLeft > dropdownWidth) {
-            offsetLeft.value = `-${dropdownWidth - 5}px`
+            offsetLeft.value = `-${dropdownWidth}px`
           }
           const dropdownHeight = dropdownItem.offsetHeight;
           const referenceOffsetBottom = reference.offsetTop;
           if (document.body.offsetHeight < referenceOffsetBottom + dropdownHeight) {
-            offsetTop.value = `-${dropdownHeight + 10}px`
+            offsetTop.value = `-${dropdownHeight + 10}px`;
           }
         }
       });

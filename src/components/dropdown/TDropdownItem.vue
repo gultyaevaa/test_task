@@ -2,11 +2,6 @@
 import {defineProps, useSlots} from 'vue'
 
 defineProps({
-  /** Выбран ли данный элемент пользователем? */
-  selected: {
-    type: Boolean,
-    default: false,
-  },
   /** Дизабл элемента */
   disabled: {
     type: Boolean,
@@ -40,20 +35,9 @@ const slots = useSlots();
 }
 
 .dropdown-item:not(.disabled):hover {
-  background: #303f5f !important;
-  transition: var(--transition-duration);
-  cursor: pointer;
-}
-
-.dropdown-item.selected {
   background: #151b29;
   border-left: 3px solid var(--color-primary);
-  transition: var(--transition-duration);
-}
-
-.dropdown-item.selected {
-  background: #1b2436;
-  transition: var(--transition-duration);
+  cursor: pointer;
 }
 
 .dropdown-item__image {
