@@ -1,8 +1,11 @@
 const clickOutside = {
     mounted: (element, binding) => {
+        const excludeElements = binding.value.excludeElements;
+        excludeElements.push(element);
+        const handler = binding.value.handler;
         element.clickOutsideEvent = (event) => {
-            if (!(element === event.target || element.contains(event.target))) {
-                binding.value();
+            if (!(excludeElements.some(el =>el === event.target || el.contains(event.target)))) {
+                handler();
             }
         }
         document.addEventListener('click', element.clickOutsideEvent);

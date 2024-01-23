@@ -1,14 +1,12 @@
 <script setup>
 import PartOne from "@/pages/PartOne.vue";
 import PartTwo from "@/pages/PartTwo.vue";
-import TListItem from "@/components/TListItem.vue";
 
 </script>
 <template>
   <div class="app">
     <PartOne/>
     <PartTwo/>
-    <TListItem></TListItem>
   </div>
 </template>
 

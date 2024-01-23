@@ -10,7 +10,7 @@ defineProps({
   /** Дизабл элемента */
   disabled: {
     type: Boolean,
-    default: true,
+    default: false,
   }
 })
 </script>
@@ -33,6 +33,8 @@ defineProps({
 .list-item {
   color: var(--color-white);
   display: flex;
+  min-width: fit-content;
+  width: 100%;
   padding: 10px 15px;
   background: #212b41;
   transition: var(--transition-duration);
@@ -42,6 +44,7 @@ defineProps({
 .list-item:not(.disabled):hover {
   background: #303f5f !important;
   transition: var(--transition-duration);
+  cursor: pointer;
 }
 
 .list-item.selected {
