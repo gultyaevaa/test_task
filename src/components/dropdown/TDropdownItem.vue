@@ -6,13 +6,18 @@ defineProps({
   disabled: {
     type: Boolean,
     default: false,
+  },
+  /** Значение элемента меню */
+  value: {
+    type: String,
+    required: true,
   }
 });
 const slots = useSlots();
 </script>
 
 <template>
-  <div class="dropdown-item" :class="[selected? 'selected':'', disabled? 'disabled': '']">
+  <div class="dropdown-item" :class="[disabled? 'disabled': '']">
     <div class="dropdown-item__image" v-if="slots.image">
       <slot name="image"></slot>
     </div>

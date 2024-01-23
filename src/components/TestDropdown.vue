@@ -3,10 +3,13 @@
 import TDropdownItem from "@/components/dropdown/TDropdownItem.vue";
 import TDropdown from "@/components/dropdown/TDropdown.vue";
 import TDropdownMenu from "@/components/dropdown/TDropdownMenu.vue";
+const logCommand = (command) => {
+  console.log(command)
+}
 </script>
 
 <template>
-  <TDropdown>
+  <TDropdown @command="logCommand">
     <template #default>
       <div class="dropdown-button">
         <svg class="dropdown-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 500" width="14">
@@ -17,19 +20,19 @@ import TDropdownMenu from "@/components/dropdown/TDropdownMenu.vue";
     </template>
     <template #dropdown>
       <TDropdownMenu>
-        <TDropdownItem>
+        <TDropdownItem value="one">
           <template #text>Первый</template>
         </TDropdownItem>
-        <TDropdownItem>
+        <TDropdownItem value="two">
           <template #text>Второй</template>
         </TDropdownItem>
-        <TDropdownItem>
+        <TDropdownItem value="three">
           <template #text>Третий</template>
         </TDropdownItem>
-        <TDropdownItem>
+        <TDropdownItem value="four">
           <template #text>Четвёртый</template>
         </TDropdownItem>
-        <TDropdownItem disabled>
+        <TDropdownItem value="five" disabled>
           <template #text>Пятый</template>
           <template #image>
             <svg viewBox="0 0 550 550" width="18">
@@ -38,7 +41,7 @@ import TDropdownMenu from "@/components/dropdown/TDropdownMenu.vue";
             </svg>
           </template>
         </TDropdownItem>
-        <TDropdownItem>
+        <TDropdownItem value="six">
           <template #text>Шестой</template>
           <template #image>
             <svg viewBox="0 0 550 550" width="18">

@@ -1,9 +1,7 @@
 <script setup>
-import {computed, nextTick, onMounted, ref} from "vue";
+import {computed, defineEmits, nextTick, onMounted, ref} from "vue";
 // TODO подумать, как перенести логику по определению направление открытия менюшки в директиву
 // TODO добавить события выбора элемента в выпадающем меню
-/** Идентификатор компонента */
-const id = Math.random().toString();
 /** Состояние dropdown */
 const state = ref(false);
 /** Смещение влево */
@@ -14,29 +12,39 @@ const offsetTop = ref(undefined);
 const transformDirection = computed(() => {
   return !offsetTop.value ? 'top' : 'bottom';
 });
+const root = ref(null);
+const menu = ref(null);
+const emits = defineEmits(['command']);
 /** Переключить состояние dropdown */
 const changeState = () => {
   state.value = !state.value;
   if (state.value) {
-    const reference = document.getElementById(id);
-    if (reference) {
-      nextTick(() => {
-        const dropdownItems = document.getElementsByClassName('dropdown');
-        if (dropdownItems.length) {
-          const referenceOffsetLeft = reference.offsetLeft;
-          const dropdownItem = dropdownItems.item(0);
-          const dropdownWidth = dropdownItem.offsetWidth;
-          if (referenceOffsetLeft > dropdownWidth) {
-            offsetLeft.value = `-${dropdownWidth}px`
-          }
-          const dropdownHeight = dropdownItem.offsetHeight;
-          const referenceOffsetBottom = reference.offsetTop;
-          if (document.body.offsetHeight < referenceOffsetBottom + dropdownHeight) {
-            offsetTop.value = `-${dropdownHeight + 10}px`;
-          }
-        }
-      });
+    const rootEl = root.value;
+    if (!rootEl) {
+      return
     }
+    nextTick(() => {
+      if (menu.value) {
+        const referenceOffsetLeft = rootEl.offsetLeft;
+        const dropdownMenu = menu.value;
+        const dropdownWidth = dropdownMenu.offsetWidth;
+        if (referenceOffsetLeft > dropdownWidth) {
+          offsetLeft.value = `-${dropdownWidth}px`
+        }
+        const dropdownHeight = dropdownMenu.offsetHeight;
+        const referenceOffsetBottom = rootEl.offsetTop;
+        if (document.body.offsetHeight < referenceOffsetBottom + dropdownHeight) {
+          offsetTop.value = `-${dropdownHeight + 10}px`;
+        }
+        const dropdownItems = root.value.getElementsByClassName('dropdown-item');
+        for (let i = 0; i < dropdownItems.length; i++) {
+          const dropdownItem = dropdownItems.item(i);
+          dropdownItem.addEventListener('click', () => {
+            emits('command', dropdownItem.__vnode.ctx.ctx.value);
+          })
+        }
+      }
+    });
   }
 }
 
@@ -44,7 +52,7 @@ const changeState = () => {
 let clickOutsideObj = {};
 onMounted(() => {
   clickOutsideObj = {
-    excludeElements: [document.getElementById(id)],
+    excludeElements: [root.value],
     handler: () => {
       state.value = false;
     }
@@ -53,10 +61,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :id="id" class="dropdown-reference" @click="changeState">
+  <div ref="root" class="dropdown-reference" @click="changeState">
     <slot name="default"/>
     <transition name="slide">
-      <div v-if="state" v-click-outside="clickOutsideObj" class="dropdown">
+      <div v-if="state" v-click-outside="clickOutsideObj" ref="menu" class="dropdown">
         <slot name="dropdown"/>
       </div>
     </transition>
