@@ -1,6 +1,7 @@
 <script setup>
 import {computed, nextTick, onMounted, ref} from "vue";
 // TODO подумать, как перенести логику по определению направление открытия менюшки в директиву
+// TODO добавить события выбора элемента в выпадающем меню
 /** Идентификатор компонента */
 const id = Math.random().toString();
 /** Состояние dropdown */
