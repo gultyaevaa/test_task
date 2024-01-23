@@ -4,7 +4,7 @@ const clickOutside = {
         excludeElements.push(element);
         const handler = binding.value.handler;
         element.clickOutsideEvent = (event) => {
-            if (!(excludeElements.some(el =>el === event.target || el.contains(event.target)))) {
+            if (!(excludeElements.some(el => el === event.target || el.contains(event.target)))) {
                 handler();
             }
         }
