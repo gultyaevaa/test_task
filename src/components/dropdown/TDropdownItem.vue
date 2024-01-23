@@ -17,8 +17,8 @@ const slots = useSlots();
 </script>
 
 <template>
-  <div class="list-item" :class="[selected? 'selected':'', disabled? 'disabled': '']">
-    <div class="list-item__image" v-if="slots.image">
+  <div class="dropdown-item" :class="[selected? 'selected':'', disabled? 'disabled': '']">
+    <div class="dropdown-item__image" v-if="slots.image">
       <slot name="image"></slot>
     </div>
     <div class="list-item__text">
@@ -28,7 +28,7 @@ const slots = useSlots();
 </template>
 
 <style scoped>
-.list-item {
+.dropdown-item {
   color: var(--color-white);
   display: flex;
   min-width: fit-content;
@@ -39,36 +39,36 @@ const slots = useSlots();
   border-left: 3px solid transparent;
 }
 
-.list-item:not(.disabled):hover {
+.dropdown-item:not(.disabled):hover {
   background: #303f5f !important;
   transition: var(--transition-duration);
   cursor: pointer;
 }
 
-.list-item.selected {
+.dropdown-item.selected {
   background: #151b29;
   border-left: 3px solid var(--color-primary);
   transition: var(--transition-duration);
 }
 
-.list-item.selected {
+.dropdown-item.selected {
   background: #1b2436;
   transition: var(--transition-duration);
 }
 
-.list-item__image {
+.dropdown-item__image {
   fill: var(--color-white);
 }
 
-.list-item.disabled .list-item__text {
+.dropdown-item.disabled .list-item__text {
   color: #868f98;
 }
 
-.list-item.disabled .list-item__image {
+.dropdown-item.disabled .dropdown-item__image {
   fill: #868f98;
 }
 
-.list-item__image + .list-item__text {
+.dropdown-item__image + .list-item__text {
   margin-left: 5px;
 }
 </style>
