@@ -1,16 +1,7 @@
 <script setup>
-import {computed, defineEmits, nextTick, onMounted, ref} from "vue";
-// TODO подумать, как перенести логику по определению направление открытия менюшки в директиву
+import {defineEmits, nextTick, onMounted, ref} from "vue";
 /** Состояние dropdown */
 const state = ref(false);
-/** Смещение влево */
-const offsetLeft = ref('0');
-/** Смещение по вертикали */
-const offsetTop = ref(undefined);
-/** Направление анимации */
-const transformDirection = computed(() => {
-  return !offsetTop.value ? 'top' : 'bottom';
-});
 const root = ref(null);
 const menu = ref(null);
 const emits = defineEmits(['command']);
@@ -24,17 +15,6 @@ const changeState = () => {
     }
     nextTick(() => {
       if (menu.value) {
-        const referenceOffsetLeft = rootEl.offsetLeft;
-        const dropdownMenu = menu.value;
-        const dropdownWidth = dropdownMenu.offsetWidth;
-        if (referenceOffsetLeft > dropdownWidth) {
-          offsetLeft.value = `-${dropdownWidth}px`
-        }
-        const dropdownHeight = dropdownMenu.offsetHeight;
-        const referenceOffsetBottom = rootEl.offsetTop;
-        if (document.body.offsetHeight < referenceOffsetBottom + dropdownHeight) {
-          offsetTop.value = `-${dropdownHeight + 10}px`;
-        }
         const dropdownItems = root.value.getElementsByClassName('dropdown-item');
         for (let i = 0; i < dropdownItems.length; i++) {
           const dropdownItem = dropdownItems.item(i);
@@ -63,7 +43,7 @@ onMounted(() => {
   <div ref="root" class="dropdown-reference" @click="changeState">
     <slot name="default"/>
     <transition name="slide">
-      <div v-if="state" v-click-outside="clickOutsideObj" ref="menu" class="dropdown">
+      <div v-if="state" v-popper-position v-click-outside="clickOutsideObj" ref="menu" class="dropdown">
         <slot name="dropdown"/>
       </div>
     </transition>
@@ -81,10 +61,7 @@ onMounted(() => {
 
 .dropdown {
   position: absolute;
-  left: v-bind(offsetLeft);
-  top: v-bind(offsetTop);
   transition: transform var(--transition-duration) ease-in-out;
-  transform-origin: v-bind(transformDirection);
   width: fit-content;
   margin: 5px 0;
 }
