@@ -9,7 +9,7 @@ const logCommand = (command) => {
 </script>
 
 <template>
-  <TDropdown @command="logCommand">
+  <TDropdown class="test-dropdown" @command="logCommand">
     <template #default>
       <div class="dropdown-button">
         <svg class="dropdown-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 500" width="14">
@@ -56,6 +56,9 @@ const logCommand = (command) => {
 </template>
 
 <style scoped>
+.test-dropdown {
+  position: absolute;
+}
 .dropdown-button {
   width: 30px;
   height: 30px;
