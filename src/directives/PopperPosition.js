@@ -2,7 +2,7 @@ const popperPosition = {
     mounted: (element) => {
         const reference = element.offsetParent;
         const referenceOffsetLeft = reference.offsetLeft;
-        const dropdownWidth = element.offsetWidth;
+        const dropdownWidth = element.offsetWidth - reference.offsetWidth;
         if (referenceOffsetLeft > dropdownWidth) {
             element.style.left = `-${dropdownWidth}px`
         }
@@ -13,6 +13,8 @@ const popperPosition = {
             element.style.top = `-${dropdownHeight + 10}px`;
         }
         element.style.transformOrigin = parseInt(element.style.top) < 0 ? 'bottom' : 'top';
+        // TODO дописать логику по определению высоты dropdown (при ограничении высоты родительского(-ких) компонента(-ов))
+        // Уточнить вопрос
     },
 }
 

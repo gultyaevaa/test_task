@@ -1,5 +1,6 @@
 <script setup>
 import {defineEmits, nextTick, onMounted, ref} from "vue";
+
 /** Состояние dropdown */
 const state = ref(false);
 const root = ref(null);

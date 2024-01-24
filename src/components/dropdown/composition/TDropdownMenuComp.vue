@@ -12,6 +12,7 @@
 .dropdown-menu {
   width: max-content;
   box-shadow: 0 0 6px rgb(0 0 0 / 75%);
+  overflow-x: hidden;
 }
 
 ::v-deep(.dropdown-item:not(:last-child)) {

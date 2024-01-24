@@ -6,12 +6,12 @@ import TestDropdown from "@/components/TestDropdown.vue";
 <template>
   <div class="part-two">
     <TestDropdown class="dropdown-left-top"/>
-    <TestDropdown class="dropdown-left-top-110"></TestDropdown>
-    <TestDropdown class="dropdown-left-top-150"></TestDropdown>
+    <TestDropdown class="dropdown-left-top-75"/>
+    <TestDropdown class="dropdown-left-top-115"/>
     <TestDropdown class="dropdown-right-top"/>
     <TestDropdown class="dropdown-left-bottom"/>
-    <TestDropdown class="dropdown-left-bottom-110"/>
-    <TestDropdown class="dropdown-left-bottom-150"/>
+    <TestDropdown class="dropdown-left-bottom-75"/>
+    <TestDropdown class="dropdown-left-bottom-115"/>
     <TestDropdown class="dropdown-right-bottom"/>
     <TestDropdown class="dropdown-right-bottom-210"/>
     <TestDropdown class="dropdown-right-bottom-250"/>
@@ -24,14 +24,14 @@ import TestDropdown from "@/components/TestDropdown.vue";
   height: calc(100% - 130px);
 }
 
-.dropdown-left-top-150 {
+.dropdown-left-top-115 {
   top: 5px;
-  left: 150px;
+  left: 115px;
 }
 
-.dropdown-left-top-110 {
+.dropdown-left-top-75 {
   top: 5px;
-  left: 110px;
+  left: 75px;
 }
 
 .dropdown-left-top {
@@ -49,14 +49,14 @@ import TestDropdown from "@/components/TestDropdown.vue";
   left: 5px;
 }
 
-.dropdown-left-bottom-110 {
+.dropdown-left-bottom-75 {
   bottom: 5px;
-  left: 110px;
+  left: 75px;
 }
 
-.dropdown-left-bottom-150 {
+.dropdown-left-bottom-115 {
   bottom: 5px;
-  left: 150px;
+  left: 115px;
 }
 
 .dropdown-right-bottom {
