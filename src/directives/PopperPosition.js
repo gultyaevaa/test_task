@@ -1,15 +1,15 @@
 const popperPosition = {
     mounted: (element) => {
-        const reference = element.offsetParent;
+        const reference = element.parentElement;
         const referenceOffsetLeft = reference.offsetLeft;
         const dropdownWidth = element.offsetWidth - reference.offsetWidth;
         if (referenceOffsetLeft > dropdownWidth) {
             element.style.left = `-${dropdownWidth}px`
         }
         const dropdownHeight = element.clientHeight;
-        const referenceOffsetBottom = reference.offsetTop;
+        const referenceOffsetTop = reference.offsetTop;
         const referenceParent = reference.parentElement;
-        if (referenceParent.clientHeight < referenceOffsetBottom + dropdownHeight + reference.clientHeight) {
+        if (referenceParent.clientHeight < referenceOffsetTop + dropdownHeight + reference.clientHeight) {
             if(dropdownHeight < referenceParent.clientHeight) {
                 element.style.top = `-${dropdownHeight + 10}px`;
             } else {
