@@ -11,6 +11,7 @@
 <style scoped>
 .dropdown-menu {
   width: max-content;
+  height: 100%;
   box-shadow: 0 0 6px rgb(0 0 0 / 75%);
   overflow-x: hidden;
 }

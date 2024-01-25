@@ -30,12 +30,3 @@ import TestDropdown from "@/components/TestDropdown.vue";
   height: 200px;
 }
 </style>
-<style>
-html, body, #app {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
-</style>

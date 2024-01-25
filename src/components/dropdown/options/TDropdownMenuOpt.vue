@@ -12,6 +12,7 @@ export default {
 
 <style scoped>
 .dropdown-menu {
+  height: 100%;
   width: max-content;
   box-shadow: 0 0 6px rgb(0 0 0 / 75%);
   overflow-x: hidden;
