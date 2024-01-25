@@ -9,8 +9,10 @@ html, body, #app {
     --color-white: #ffffff;
     --color-black: #0e121b;
     --color-primary: #4ab4ff;
+    --color-disabled: #868f98;
     --text-color-disabled: #303f5f;
     --transition-duration: .3s;
+    --color-background-black: #151b29;
 }
 
 ::-webkit-scrollbar {

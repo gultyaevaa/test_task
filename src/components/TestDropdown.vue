@@ -111,7 +111,7 @@ const logCommand = (command) => {
   height: 30px;
   display: flex;
   justify-content: center;
-  background: #151b29;
+  background: var(--color-background-black);
   border: 1px solid var(--color-primary);
   border-radius: 4px;
   cursor: pointer;

@@ -40,7 +40,7 @@ const slots = useSlots();
 }
 
 .dropdown-item:not(.disabled):hover {
-  background: #151b29;
+  background: var(--color-background-black);
   border-left: 3px solid var(--color-primary);
   cursor: pointer;
 }
@@ -50,11 +50,11 @@ const slots = useSlots();
 }
 
 .dropdown-item.disabled .list-item__text {
-  color: #868f98;
+  color: var(--color-disabled);
 }
 
 .dropdown-item.disabled .dropdown-item__image {
-  fill: #868f98;
+  fill: var(--color-disabled);
 }
 
 .dropdown-item__image + .list-item__text {
